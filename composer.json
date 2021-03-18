@@ -15,6 +15,7 @@
     ],
     "require": {
         "drupal/gatsby": "^1.0@RC",
+        "drupal/jsonapi_extras": "^3.17",
         "drush/drush": "^10",
         "pantheon-upstreams/upstream-configuration": "*"
     },
