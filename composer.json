@@ -14,6 +14,7 @@
         }
     ],
     "require": {
+        "drupal/admin_toolbar": "^3.0",
         "drupal/gatsby": "^1.0@RC",
         "drupal/jsonapi_extras": "^3.17",
         "drupal/pathauto": "^1.8",
