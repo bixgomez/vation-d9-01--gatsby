@@ -1,0 +1,4 @@
+name: vation-d9-01
+recipe: drupal9
+config:
+  webroot: ./web
