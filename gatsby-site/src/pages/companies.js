@@ -42,7 +42,7 @@ export const query = graphql`
           field_logo {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 250) {
+                fluid(maxWidth: 500) {
                   ...GatsbyImageSharpFluid
                 }
               }

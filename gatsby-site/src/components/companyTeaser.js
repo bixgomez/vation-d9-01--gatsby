@@ -3,10 +3,18 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 const CompanyTeaser = ({ title, path, image, alt, summary }) => (
-    <div>
-      <h2><Link to={path}>{title}</Link></h2>
-      <Img fluid={image} alt={alt} />
-      <div dangerouslySetInnerHTML={{__html: summary}} />
+    <div className={ "company-teaser" }>
+      <h2 className={ "company-teaser-title" }>
+        <Link className={ "company-teaser-link" }
+          to={path}>{title}</Link>
+      </h2>
+      <Img className={ "company-logo" }
+        fluid={image}
+        alt={alt}
+      />
+      <div className={ "company-teaser-text" }
+        dangerouslySetInnerHTML={{__html: summary}}
+      />
     </div>
 );
 
