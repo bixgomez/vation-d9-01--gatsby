@@ -14,7 +14,7 @@ const Companies = ({data}) => {
           key={company.id}
           title={company.title}
           path={company.path.alias}
-          image={company.article.relationships.field_logo.localFile.childImageSharp.fluid}
+          image={company.relationships.field_logo.localFile.childImageSharp.fluid}
           alt={company.field_logo.alt}
           summary={company.body.summary}
         />

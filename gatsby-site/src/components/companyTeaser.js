@@ -4,9 +4,7 @@ import Img from "gatsby-image";
 
 const CompanyTeaser = ({ title, path, image, alt, summary }) => (
     <div>
-      <link to={path}>
-        <h2>{title}</h2>
-      </link>
+      <h2><Link to={path}>{title}</Link></h2>
       <Img fluid={image} alt={alt} />
       <div dangerouslySetInnerHTML={{__html: summary}} />
     </div>
