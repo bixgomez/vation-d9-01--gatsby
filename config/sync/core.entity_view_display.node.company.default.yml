@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.company.body
+    - field.field.node.company.field_logo
     - node.type.company
   module:
+    - image
     - text
     - user
 id: node.company.default
@@ -19,6 +21,15 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_logo:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   links:
     weight: 100
