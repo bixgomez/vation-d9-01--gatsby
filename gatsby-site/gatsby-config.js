@@ -35,6 +35,10 @@ module.exports = {
         baseUrl: `http://vation-d9-01.lndo.site/`,
       },
     },
+
+    // See https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/
+    `gatsby-plugin-sass`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

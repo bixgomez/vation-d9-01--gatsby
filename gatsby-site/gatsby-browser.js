@@ -4,4 +4,10 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// custom typefaces
+import "typeface-montserrat"
+import "typeface-merriweather"
+
+// custom CSS styles
+import "./src/style.scss"
+
