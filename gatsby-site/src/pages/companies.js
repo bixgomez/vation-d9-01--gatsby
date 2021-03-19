@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/layout'
-import CompanyPreview from "../components/companyPreview"
+import CompanyTeaser from "../components/companyTeaser"
 
 const Companies = ({data}) => {
   const companies = data.allNodeCompany.nodes
@@ -10,7 +10,7 @@ const Companies = ({data}) => {
     <Layout>
       <h1>Companies</h1>
       {companies.map(company => (
-        <CompanyPreview
+        <CompanyTeaser
           key={company.id}
           title={company.title}
           path={company.path.alias}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
-const CompanyPreview = ({ title, path, image, alt, summary }) => (
+const CompanyTeaser = ({ title, path, image, alt, summary }) => (
     <div>
       <link to={path}>
         <h2>{title}</h2>
@@ -12,4 +12,4 @@ const CompanyPreview = ({ title, path, image, alt, summary }) => (
     </div>
 );
 
-export default CompanyPreview;
+export default CompanyTeaser;
