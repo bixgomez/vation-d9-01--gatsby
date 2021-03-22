@@ -1,0 +1,31 @@
+.company-teaser {
+  display: grid;
+  background-color: #eee;
+  padding: .5em;
+  grid-template-areas:
+    "logo title"
+    "logo description";
+  grid-gap: .5em;
+  grid-template-columns: 5em 1fr;
+  grid-template-rows: min-content 1fr;
+  margin-bottom: 1em;
+}
+
+.company-logo {
+  grid-area: logo;
+  width: 5em;
+  height: 5em;
+  // background-color: #FFF;
+}
+
+.company-teaser-title {
+  grid-area: title;
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin-bottom: .125em;
+}
+
+.company-teaser-text {
+  grid-area: description;
+  font-size: 1em;
+}
