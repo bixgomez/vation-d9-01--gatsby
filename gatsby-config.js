@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://vation-d9-01.lndo.site/`,
+        baseUrl: `https://dev-vation-d9-01.pantheonsite.io/`,
         // Local: http://vation-d9-01.lndo.site/
         // Dev: https://dev-vation-d9-01.pantheonsite.io/
       },
