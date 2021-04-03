@@ -109,6 +109,13 @@ class HomePage extends React.Component {
 // GraphQL query to pull the static content for this page.
 export const data = graphql`
   query HomePageQuery {
+    allNodePage {
+      edges {
+        node {
+          title
+        }
+      }
+    }
     allNodeCompany(sort: {fields: title, order: ASC}) {
       nodes {
         id

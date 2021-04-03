@@ -32,3 +32,17 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   )
 }
+
+// I think this facilitates aynchronous updates on Gatsby Cloud...
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = "/app/*"
+
+    // Update the page.
+    createPage(page)
+  }
+}
