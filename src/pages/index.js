@@ -1,3 +1,10 @@
+/*
+ * This is an experiment in pulling both static and dynamic data into Gatsby on the same page.
+ * The static data is from a Drupal 9 site hosted at Pantheon (https://dev-vation-d9-01.pantheonsite.io/)
+ * The dynamic data is fetched from two public APIs: swapi.dev and the-beatles-api.herokuapp.com
+ * As you can see, one of the APIs is slower than the other!
+ */
+
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -7,41 +14,79 @@ import CompanyTeaser from "../components/companyTeaser"
 class HomePage extends React.Component {
 
   state = {
-    loading: true,
-    error: false,
-    fetchedData: [],
+    loadingCharacters: true,
+    loadingAlbums: true,
+    fetchedCharacters: [],
+    fetchedAlbums: [],
   }
 
   componentDidMount() {
-    fetch('https://swapi.dev/api/people/').then(response => {
-      return response.json()
-    }).then(json => {
-      console.log(json)
-      this.setState({
-        fetchedData: json.results,
-        loading: false
+
+    // Fetching data from some public APIs
+    // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+
+    // https://swapi.dev/api/people/
+    // https://the-beatles-api.herokuapp.com/api/v1/albums/
+
+    fetch('https://swapi.dev/api/people/')
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        console.log(json)
+        this.setState({
+          fetchedCharacters: json.results,
+          loadingCharacters: false
+      })
+    })
+
+    fetch('https://the-beatles-api.herokuapp.com/api/v1/albums/')
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        console.log(json)
+        this.setState({
+          fetchedAlbums: json,
+          loadingAlbums: false
       })
     })
   }
 
   render() {
 
-    // I suspect I am doing something wrong here...
-    // "Cannot read property 'nodes' of undefined"
-    const companies = data.allNodeCompany.nodes
+    const companies = this.props.data.allNodeCompany.nodes
 
-    const{loading, fetchedData} = this.state
+    const{
+      loadingCharacters,
+      fetchedCharacters,
+      loadingAlbums,
+      fetchedAlbums
+    } = this.state
 
     return (
       <Layout>
-        <h1>Companies</h1>            
-        <h3>So, now we want to add dynamic data here.</h3>
-        <ul>
-          {fetchedData.map(character => <li>{character.name}</li>)}
-        </ul>
-        <hr />
+        <h1>Static + Dynamic Data</h1>
 
-        {/* This is giving me an "'allCompanies' is not defined" error  */}
+        <h3>Star Wars characters, dynamic data from an API:</h3>
+        <ul>
+          {loadingCharacters ? (
+            <li>Loading...</li>
+          ) : (
+            fetchedCharacters.map(character => <li key={character.name}>{character.name} ({character.height}cm)</li>)
+          )}
+        </ul>
+
+        <h3>Beatles albums, dynamic data from an API:</h3>
+        <ul>
+          {loadingAlbums ? (
+            <li>Loading...</li>
+          ) : (
+            fetchedAlbums.map(album => <li key={album.albumName}>{album.albumName}</li>)
+          )}
+        </ul>
+
+        <h3>Company teasers, static data from Drupal:</h3>
         {companies.map(company => (
           <CompanyTeaser
             key={company.id}
@@ -59,7 +104,7 @@ class HomePage extends React.Component {
 
 // GraphQL query to pull the static content for this page.
 export const data = graphql`
-  {
+  query HomePageQuery {
     allNodeCompany(sort: {fields: title, order: ASC}) {
       nodes {
         id
