@@ -1,0 +1,26 @@
+.site-header {
+  background-color: #444;
+  margin-bottom: 1rem;
+}
+
+.cols {
+  display: flex;
+}
+
+.col {
+  &__first {
+    margin-right: 1em;
+  }
+
+  &__last {
+    margin-right: 0;
+  }
+
+  .cols__equal > & {
+    flex: 1;
+  }
+}
+
+.fontsize__small {
+  font-size: .9em;
+}

@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   line-height: 1.4;
+  font-size: 1em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -15,10 +20,6 @@ h1, h2, h3, h4, h5 {
   margin-bottom: .5em;
 }
 
-.site-header {
-  background-color: #444;
-  margin-bottom: 1rem;
-}
-
+@import "sass/layout/layout";
 @import "sass/elements/header";
 @import "sass/components/companyTeaser";

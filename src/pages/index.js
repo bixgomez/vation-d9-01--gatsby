@@ -67,24 +67,28 @@ class HomePage extends React.Component {
     return (
       <Layout>
         <h1>Static + Dynamic Data</h1>
-
-        <h3>Star Wars characters, dynamic data from an API:</h3>
-        <ul>
-          {loadingCharacters ? (
-            <li>Loading...</li>
-          ) : (
-            fetchedCharacters.map(character => <li key={character.name}>{character.name} ({character.height}cm)</li>)
-          )}
-        </ul>
-
-        <h3>Beatles albums, dynamic data from an API:</h3>
-        <ul>
-          {loadingAlbums ? (
-            <li>Loading...</li>
-          ) : (
-            fetchedAlbums.map(album => <li key={album.albumName}>{album.albumName}</li>)
-          )}
-        </ul>
+        <div className={"fontsize__small cols cols__equal"}>
+          <div className={"col col__first"}>
+            <h3>Star Wars characters, dynamic data from an API:</h3>
+            <ul>
+              {loadingCharacters ? (
+                <li>Loading...</li>
+              ) : (
+                fetchedCharacters.map(character => <li key={character.name}>{character.name} ({character.height}cm)</li>)
+              )}
+            </ul>
+          </div>
+          <div className={"col col__last"}>
+            <h3>Beatles albums, dynamic data from an API:</h3>
+            <ul>
+              {loadingAlbums ? (
+                <li>Loading...</li>
+              ) : (
+                fetchedAlbums.map(album => <li key={album.albumName}>{album.albumName}</li>)
+              )}
+            </ul>
+          </div>
+        </div>
 
         <h3>Company teasers, static data from Drupal:</h3>
         {companies.map(company => (
