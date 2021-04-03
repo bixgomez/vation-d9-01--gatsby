@@ -5,6 +5,7 @@
  */
 
 // custom typefaces
+import "lato-font"
 import "typeface-montserrat"
 import "typeface-merriweather"
 
