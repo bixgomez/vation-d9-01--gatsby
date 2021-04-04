@@ -28,6 +28,7 @@ class HomePage extends React.Component {
     // https://swapi.dev/api/people/
     // https://the-beatles-api.herokuapp.com/api/v1/albums/
 
+    // https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
     fetch('https://swapi.dev/api/people/')
       .then(response => {
         return response.json()
@@ -37,8 +38,8 @@ class HomePage extends React.Component {
         this.setState({
           fetchedCharacters: json.results,
           loadingCharacters: false
+        })
       })
-    })
 
     fetch('https://the-beatles-api.herokuapp.com/api/v1/albums/')
       .then(response => {
@@ -49,24 +50,49 @@ class HomePage extends React.Component {
         this.setState({
           fetchedAlbums: json,
           loadingAlbums: false
+        })
       })
-    })
+
+    // fetch('https://dev-vation-d9-01.pantheonsite.io/jsonapi/node/page/1ba531a1-e91b-4faa-a8ef-750839d97acd')
+    //   .then(response => {
+    //     return response.json()
+    //   })
+    //   .then(json => {
+    //     console.log(json)
+    //     this.setState({
+    //       fetchedTitle: json,
+    //       loadingTitle: false
+    //     })
+    //   })
   }
 
   render() {
 
     const companies = this.props.data.allNodeCompany.nodes
 
+    // I would like to pull this dynamically, rather than statically.
+    const pagetitle = this.props.data.allNodePage.edges[0].node.title
+
     const{
       loadingCharacters,
       fetchedCharacters,
       loadingAlbums,
-      fetchedAlbums
+      fetchedAlbums,
     } = this.state
 
     return (
       <Layout>
-        <h1>Static + Dynamic Data</h1>
+
+        {/* Displaying the page title as pulled from the static query.  How can we make this dynamic? */}
+        <h1>{ pagetitle }</h1>
+        <h2>(pulled statically, but I'd like to pull it dynamically)</h2>
+
+        {/*{loadingTitle ? (*/}
+        {/*  <h1>Loading...</h1>*/}
+        {/*) : (*/}
+        {/*  <h1></h1>*/}
+        {/*)}*/}
+
         <div className={"fontsize__small cols cols__equal"}>
           <div className={"col col__first"}>
             <h3>Star Wars characters, dynamic data from an API:</h3>
@@ -107,9 +133,10 @@ class HomePage extends React.Component {
 }
 
 // GraphQL query to pull the static content for this page.
+// Is it possible to pull data dynamically using this query?
 export const data = graphql`
   query HomePageQuery {
-    allNodePage {
+    allNodePage(filter: {drupal_internal__nid: {eq: 1}}) {
       edges {
         node {
           title
