@@ -5,11 +5,24 @@
  * As you can see, one of the APIs is slower than the other!
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import CompanyTeaser from "../components/companyTeaser"
+
+// I wrote this function in the hope of actually being able to display dynamic data somewhere
+// inside my component.  But it doesn't seem to work... Or, I just don't know how to call this
+// function from inside my component!
+function PageTitleFunction() {
+  useEffect( () => {
+    async function GetPageTitle() {
+      const pageTitleData = await fetch(`https://dev-vation-d9-01.pantheonsite.io/jsonapi/node/page/1ba531a1-e91b-4faa-a8ef-750839d97acd`)
+        .then(resp => resp.json())
+      console.log(pageTitleData)
+    }
+  })
+}
 
 class HomePage extends React.Component {
 
@@ -85,6 +98,7 @@ class HomePage extends React.Component {
 
         {/* Displaying the page title as pulled from the static query.  How can we make this dynamic? */}
         <h1>{ pagetitle }</h1>
+
         <h2>(pulled statically, but I'd like to pull it dynamically)</h2>
 
         {/*{loadingTitle ? (*/}
@@ -93,7 +107,7 @@ class HomePage extends React.Component {
         {/*  <h1></h1>*/}
         {/*)}*/}
 
-        <div className={"fontsize__small cols cols__equal"}>
+        <div id={"dynamic-data-wrapper"} className={"fontsize__small cols cols__equal"}>
           <div className={"col col__first"}>
             <h3>Star Wars characters, dynamic data from an API:</h3>
             <ul>

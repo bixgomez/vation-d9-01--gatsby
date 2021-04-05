@@ -5,6 +5,7 @@
 
 .cols {
   display: flex;
+  margin-bottom: 1em;
 }
 
 .col {
@@ -23,4 +24,11 @@
 
 .fontsize__small {
   font-size: .9em;
+}
+
+#dynamic-data-wrapper {
+  max-height: 46vh;
+  overflow-y: scroll;
+  padding: 1.5em;
+  border: 1px solid #ddd;
 }
