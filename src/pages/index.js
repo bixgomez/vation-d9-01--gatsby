@@ -28,7 +28,7 @@ const Companies = ({data}) => {
     async function GetStarWarsChars() {
       const StarWarsCharsData = await fetch(StarWarsCharsApi)
       const data = await StarWarsCharsData.json()
-      console.log(data.results)
+      // console.log(data.results)
       SetStarWarsChars(data.results)
     }
     GetStarWarsChars()
@@ -36,7 +36,7 @@ const Companies = ({data}) => {
     async function GetBeatlesAlbums() {
       const BeatlesAlbumsData = await fetch(BeatlesAlbumsApi)
       const data = await BeatlesAlbumsData.json()
-      console.log(data)
+      // console.log(data)
       SetBeatlesAlbums(data)
     }
     GetBeatlesAlbums()
