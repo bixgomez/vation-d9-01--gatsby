@@ -10,8 +10,8 @@ const BeatlesAlbumsApi = `https://the-beatles-api.herokuapp.com/api/v1/albums/`
 const Companies = ({data}) => {
 
   const [PageTitle, SetPageTitle] = useState("");
-  const [StarWarsChars, SetStarWarsChars] = useState("");
-  const [BeatlesAlbums, SetBeatlesAlbums] = useState("");
+  const [StarWarsChars, SetStarWarsChars] = useState([]);
+  const [BeatlesAlbums, SetBeatlesAlbums] = useState([]);
 
   // Dynamically pull my page title.
   // https://stackoverflow.com/questions/62781907/react-hooks-0-vs-empty-array-as-second-argument-in-useeffect
@@ -56,19 +56,19 @@ const Companies = ({data}) => {
         <div className={"col col__first"}>
           <h3>Star Wars characters, dynamic data from an API:</h3>
           <ul>
-            {/*{StarWarsChars.map(character => (*/}
-            {/*  <li key={character.name}>*/}
-            {/*    {character.name} ({character.height}cm)*/}
-            {/*  </li>*/}
-            {/*))}*/}
+            {StarWarsChars.map(character => (
+              <li key={character.name}>
+                {character.name} ({character.height}cm)
+              </li>
+            ))}
           </ul>
         </div>
         <div className={"col col__last"}>
           <h3>Beatles albums, dynamic data from an API:</h3>
           <ul>
-            {/*{BeatlesAlbums.map(album => (*/}
-            {/*  <li key={album.albumName}>{album.albumName}</li>*/}
-            {/*))}*/}
+            {BeatlesAlbums.map(album => (
+              <li key={album.albumName}>{album.albumName}</li>
+            ))}
           </ul>
         </div>
       </div>
