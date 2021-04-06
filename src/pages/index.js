@@ -56,6 +56,7 @@ const Companies = ({data}) => {
         <div className={"col col__first"}>
           <h3>Star Wars characters, dynamic data from an API:</h3>
           <ul>
+            {StarWarsChars.length === 0 ? <li>Loading...</li> : ''}
             {StarWarsChars.map(character => (
               <li key={character.name}>
                 {character.name} ({character.height}cm)
@@ -66,6 +67,7 @@ const Companies = ({data}) => {
         <div className={"col col__last"}>
           <h3>Beatles albums, dynamic data from an API:</h3>
           <ul>
+            {BeatlesAlbums.length === 0 ? <li>Loading...</li> : ''}
             {BeatlesAlbums.map(album => (
               <li key={album.albumName}>{album.albumName}</li>
             ))}
