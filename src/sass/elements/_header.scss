@@ -1,3 +1,17 @@
-header {
-  background-color: #1f2f57;
+.zone-inner--header {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+h1.site-title {
+  margin: 0;
+}
+
+.site-title-link {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(white, .85);
+  }
 }

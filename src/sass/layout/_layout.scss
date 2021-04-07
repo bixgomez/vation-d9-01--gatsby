@@ -1,6 +1,10 @@
-.site-header {
-  background-color: #444;
+.zone-outer--header {
+  background-color: #1f2f57;
   margin-bottom: 1rem;
+}
+
+.zone-inner--header {
+
 }
 
 .cols {
@@ -31,4 +35,32 @@
   overflow-y: scroll;
   padding: 1.5em;
   border: 1px solid #ddd;
+  background-color: #FFF;
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.zone-outer {
+  width: 100%;
+  margin: 0;
+}
+
+.zone {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.zone-inner {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin: 0;
+}
+
+.zone-inner--content {
+  padding-top: .75em;
+  padding-bottom: .75em;
 }

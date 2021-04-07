@@ -8,6 +8,7 @@ const Company = ({ data }) => {
   return (
     <Layout>
       <h1>{company.title}</h1>
+      <h2>uuid: {company.id}</h2>
       <div dangerouslySetInnerHTML={{ __html: company.body.processed }} />
     </Layout>
   )
